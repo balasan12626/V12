@@ -1,0 +1,29 @@
+# Allow all search engines to crawl the website
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /admin
+Disallow: /private
+
+# Sitemap location
+Sitemap: https://www.balakarthikeyan.me/sitemap.xml
+
+# Crawl-delay: 10  # Uncomment if needed to limit crawl rate
+
+# Additional directives for specific bots
+User-agent: Googlebot
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Host directive (if needed)
+# Host: www.balakarthikeyan.me
