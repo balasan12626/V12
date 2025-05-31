@@ -89,10 +89,6 @@
   [headers.values]
     Cache-Control = "public, max-age=3600"
 
-# Enable GZIP compression
-[[plugins]]
-  package = "@netlify/plugin-gzip"
-
 # Enable image optimization
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
