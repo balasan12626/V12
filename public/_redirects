@@ -14,16 +14,3 @@ https://balakarthikeyan.me/* https://www.balakarthikeyan.me/:splat 301!
 
 # Redirect old URLs (example)
 # /old-url /new-url 301
-
-# Cache static assets
-/assets/*  Cache-Control: public, max-age=31536000, immutable
-/images/*  Cache-Control: public, max-age=31536000, immutable
-/fonts/*   Cache-Control: public, max-age=31536000, immutable
-
-# Security Headers
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
