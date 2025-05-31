@@ -1,1 +1,29 @@
+# Netlify Settings for SPA
 /*    /index.html   200
+
+# Force HTTPS
+http://balakarthikeyan.me/* https://www.balakarthikeyan.me/:splat 301!
+http://www.balakarthikeyan.me/* https://www.balakarthikeyan.me/:splat 301!
+https://balakarthikeyan.me/* https://www.balakarthikeyan.me/:splat 301!
+
+# Remove trailing slashes
+/*/ /:splat 301
+
+# Custom error pages
+/404 /404.html 404
+
+# Redirect old URLs (example)
+# /old-url /new-url 301
+
+# Cache static assets
+/assets/*  Cache-Control: public, max-age=31536000, immutable
+/images/*  Cache-Control: public, max-age=31536000, immutable
+/fonts/*   Cache-Control: public, max-age=31536000, immutable
+
+# Security Headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()

@@ -1,24 +1,190 @@
-# Allow all search engines to crawl the website
+# Production robots.txt for balakarthikeyan.me
+# Last updated: 2025-05-31
+# This file is served as robots.txt in all environments
+
+# Global rules for all crawlers
 User-agent: *
 Allow: /
-Disallow: /404
-Disallow: /admin
-Disallow: /private
+Allow: /$
+Allow: /about/$
+Allow: /projects/$
+Allow: /contact/$
+Disallow: /api/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search
+Disallow: /*?*
+Disallow: /*.json$
+Disallow: /*.xml$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /sitemap.xml$
+Allow: /sitemap-*.xml$
+Allow: /robots.txt$
 
-# Sitemap location
+# Crawl-delay: 10
+
+# Sitemap location (must be absolute URL)
 Sitemap: https://www.balakarthikeyan.me/sitemap.xml
+Sitemap: https://www.balakarthikeyan.me/sitemap-pages.xml
+Sitemap: https://www.balakarthikeyan.me/sitemap-projects.xml
+Sitemap: https://www.balakarthikeyan.me/sitemap-blog.xml
 
-# Crawl-delay: 10  # Uncomment if needed to limit crawl rate
-
-# Additional directives for specific bots
+# Specific bot rules
+# ----- ALLOWED BOTS -----
+# Google
 User-agent: Googlebot
+Allow: /
+Allow: /*.css$
+Allow: /*.js$
+
+# Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /assets/
+
+# Bing
+User-agent: bingbot
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+# Facebook
+User-agent: facebot
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+
+# ----- RESTRICTED BOTS -----
+# Bad bots
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: dotbot
+Disallow: /
+User-agent: rogerbot
+Disallow: /
+User-agent: exabot
+Disallow: /
+User-agent: gigabot
+Disallow: /
+User-agent: YandexBot
+Disallow: /
+User-agent: Baiduspider
+Disallow: /
+User-agent: Sogou web spider
+Disallow: /
+User-agent: NaverBot
+Disallow: /
+
+# Scrapers
+User-agent: DataForSeoBot
+Disallow: /
+User-agent: Barkrowler
+Disallow: /
+User-agent: BLEXBot
+Disallow: /
+
+# Vulnerability scanners
+User-agent: Nmap Scripting Engine
+Disallow: /
+User-agent: sqlmap
+Disallow: /
+User-agent: Nessus
+Disallow: /
+
+# Rate limit aggressive crawlers
+User-agent: CCBot
+Crawl-delay: 10
+
+# Host directive (only one is used by search engines)
+Host: www.balakarthikeyan.me
+
+# Clean-param: ref /blog/
+# Clean-param: utm_source /
+# Clean-param: utm_medium /
+# Clean-param: utm_campaign /
+# Clean-param: gclid /
+# Clean-param: fbclid /
+# Clean-param: _ga
+
+# Additional security headers
+# X-Robots-Tag: noimageindex
+# X-Robots-Tag: noarchive
+# X-Robots-Tag: nosnippet
+
+# Allow Google to show sitelinks search box
+# User-agent: Googlebot
+# Allow: /search
+# Allow: /api/search
+
+# Allow Googlebot to render JavaScript
+# User-agent: Googlebot
+# Allow: /*.js$
+# Allow: /*.css$
+# Allow: /*.svg$
+# Allow: /*.png$
+# Allow: /*.jpg$
+# Allow: /*.jpeg$
+# Allow: /*.gif$
+# Allow: /*.webp$
+# Allow: /*.woff$
+# Allow: /*.woff2$
+# Allow: /*.ttf$
+# Allow: /*.eot$
+
+# Mobile sitemap
+# Sitemap: https://www.balakarthikeyan.me/sitemap-mobile.xml
+
+# News sitemap (if you have a news section)
+# Sitemap: https://www.balakarthikeyan.me/sitemap-news.xml
+
+# Video sitemap (if you have videos)
+# Sitemap: https://www.balakarthikeyan.me/sitemap-video.xml
+
+# Image sitemap (for image-heavy sites)
+# Sitemap: https://www.balakarthikeyan.me/sitemap-image.xml
+
+# Hosting provider specific rules
+# Cloudflare
+User-agent: CloudFlare-AlwaysOnline
+Disallow: /
+
+# WordPress specific (if applicable in the future)
+# Disallow: /wp-admin/
+# Disallow: /wp-includes/
+# Disallow: /wp-content/plugins/
+# Allow: /wp-content/uploads/
+
+# E-commerce specific (if applicable in the future)
+# Disallow: /cart/
+# Disallow: /checkout/
+# Disallow: /my-account/
+# Disallow: /wishlist/
+# Disallow: /*?add-to-cart=*
+# Disallow: /*?orderby=*
+# Disallow: /*?filter_*bp$
+Allow: /*.gif$
+Allow: /*.webm$
+
+# Bingbot specific rules
+User-agent: bingbot
 Allow: /*.css$
 Allow: /*.js$
 Allow: /*.jpg$
 Allow: /*.png$
 Allow: /*.svg$
+Allow: /*.webp$
 
-# Block bad bots
+# Block bad bots and scrapers
 User-agent: AhrefsBot
 Disallow: /
 
