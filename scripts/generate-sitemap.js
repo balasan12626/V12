@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Your domain - update this with your actual domain
-const domain = 'https://yourdomain.com';
+const domain = 'https://www.balakarthikeyan.me';
 
 // List all your routes here
 const routes = [
