@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import viteCompression from 'vite-plugin-compression';
 import viteImagemin from 'vite-plugin-imagemin';
+import viteSitemap from './vite-sitemap-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -11,7 +12,19 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   
   return {
+    // Ensure Vite serves static files from the public directory
+    publicDir: 'public',
+    
+    server: {
+      // Ensure Vite serves files with the correct MIME types
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    },
+    
     plugins: [
+      // Custom plugin to handle sitemap.xml in development
+      viteSitemap(),
       react(),
       createHtmlPlugin({
         minify: true,

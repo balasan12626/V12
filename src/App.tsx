@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'; // Removed unused useNavigate
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useEffect } from 'react';
 import ScrollToTop from './components/Common/ScrollToTop';
@@ -8,8 +8,9 @@ import About from './components/AboutPage/About';
 import Projects from './components/ProjectsPage/Projects';
 import Skills from './components/SkillsPage/Skills';
 import Contact from './components/ContactPage/Contact';
-import ErrorBoundary from './components/ErrorBoundary'; // Removed unused withErrorBoundary
+import ErrorBoundary from './components/ErrorBoundary';
 import NotFound from './pages/NotFound';
+import Sitemap from './components/Sitemap/Sitemap';
 
 // Component to handle 404 errors
 const CatchAllRoutes = () => {
@@ -30,9 +31,8 @@ const CatchAllRoutes = () => {
         <Route path="projects" element={<Projects />} />
         <Route path="skills" element={<Skills />} />
         <Route path="contact" element={<Contact />} />
-        {/* Add a 404 route */}
+        <Route path="sitemap.xml" element={<Sitemap />} />
         <Route path="404" element={<NotFound />} />
-        {/* Catch all other routes */}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
