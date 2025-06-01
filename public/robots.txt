@@ -1,6 +1,9 @@
 # Production robots.txt for balakarthikeyan.me
-# Last updated: 2025-05-31
+# Last updated: 2025-06-01
 # This file is served as robots.txt in all environments
+
+# Sitemap reference
+Sitemap: https://www.balakarthikeyan.me/sitemap.xml
 
 # Global rules for all crawlers
 User-agent: *
