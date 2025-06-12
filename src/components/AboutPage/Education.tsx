@@ -5,13 +5,13 @@ const Education: React.FC = () => {
   const educationData = [
     {
       degree: 'B.Tech in Artificial Intelligence & Data Science',
-      institution: 'Sofia College',
-      period: '2020-2024'
+      institution: 'Sona College',
+      period: '2024-2027'
     },
     {
       degree: 'Diploma in Electronics and Communication Engineering',
       institution: 'Thiagarajar Polytechnic College',
-      period: '2017-2020'
+      period: '2021-2024'
     }
   ];
 
