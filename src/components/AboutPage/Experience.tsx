@@ -6,13 +6,13 @@ const Experience: React.FC = () => {
     {
       position: 'Freelance Data Analyst',
       company: 'Power BI, Data Analysis',
-      period: '2023 - Present',
+      period: '2025 - Present',
       description: 'Working with clients to create interactive dashboards and reports. Performing data cleaning, transformation, and visualization to derive actionable insights.'
     },
     {
       position: 'AI Agent Projects',
       company: 'AI Development, Machine Learning',
-      period: '2022 - Present',
+      period: '2024 - Present',
       description: 'Developing intelligent agents using machine learning algorithms. Building and training models for various applications including computer vision and natural language processing.'
     }
   ];
