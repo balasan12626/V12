@@ -32,7 +32,7 @@ const Article: React.FC = () => {
   const [readingProgress, setReadingProgress] = useState<number>(0);
 
   // Base API URL - adjust according to your FastAPI server
-  const API_BASE_URL = 'https://v12backend-production.up.railway.app/';
+  const API_BASE_URL = 'https://v12backend-production.up.railway.app/blogs';
 
   // Reading progress bar functionality
   useEffect(() => {
