@@ -32,7 +32,7 @@ const Article: React.FC = () => {
   const [readingProgress, setReadingProgress] = useState<number>(0);
 
   // Base API URL - adjust according to your FastAPI server
-  const API_BASE_URL = 'https://v12backend-production.up.railway.app/blogs';
+  const API_BASE_URL = 'https://v12backend-production.up.railway.app';
 
   // Reading progress bar functionality
   useEffect(() => {
@@ -53,13 +53,28 @@ const Article: React.FC = () => {
   const fetchAllBlogs = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_BASE_URL}/blogs`);
+      console.log('Fetching blogs from:', `${API_BASE_URL}/blogs`);
+      
+      const response = await fetch(`${API_BASE_URL}/blogs`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        mode: 'cors', // Enable CORS
+      });
+      
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
       }
       
       const data = await response.json();
+      console.log('Received data:', data);
       
       if (data.status === 'success' && data.blogs) {
         // Transform the data to match our interface
@@ -70,14 +85,22 @@ const Article: React.FC = () => {
           created_at: blog.created_at || new Date().toISOString(),
           preview: blog.preview || ''
         }));
+        console.log('Transformed blogs:', transformedBlogs.length);
         setBlogs(transformedBlogs);
         setError('');
       } else {
-        throw new Error('Failed to fetch blogs');
+        console.error('Invalid data structure:', data);
+        throw new Error('Failed to fetch blogs - invalid response structure');
       }
     } catch (err) {
       console.error('Error fetching blogs:', err);
-      setError('Failed to load blogs. Please check if the backend server is running.');
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError('Network error: Unable to connect to the server. Please check your internet connection and try again.');
+      } else if (err instanceof Error) {
+        setError(`Failed to load blogs: ${err.message}`);
+      } else {
+        setError('An unexpected error occurred while loading blogs.');
+      }
     } finally {
       setLoading(false);
     }
@@ -87,17 +110,31 @@ const Article: React.FC = () => {
   const fetchBlogById = async (blogId: string) => {
     try {
       setLoading(true);
+      console.log('Fetching specific blog:', blogId, 'from:', `${API_BASE_URL}/blogs`);
+      
       // First fetch all blogs, then find the specific one by index
-      const response = await fetch(`${API_BASE_URL}/blogs`);
+      const response = await fetch(`${API_BASE_URL}/blogs`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        mode: 'cors', // Enable CORS
+      });
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
       }
       
       const data = await response.json();
+      console.log('Received data for blog:', data);
       
       if (data.status === 'success' && data.blogs) {
         const blogIndex = parseInt(blogId) - 1; // Convert to 0-based index
+        console.log('Looking for blog at index:', blogIndex, 'out of', data.blogs.length);
+        
         if (blogIndex >= 0 && blogIndex < data.blogs.length) {
           const blog = data.blogs[blogIndex];
           const transformedBlog = {
@@ -107,18 +144,26 @@ const Article: React.FC = () => {
             created_at: blog.created_at || new Date().toISOString(),
             preview: blog.preview || ''
           };
+          console.log('Selected blog:', transformedBlog.title);
           setSelectedBlog(transformedBlog);
           setViewMode('single');
           setError('');
         } else {
-          throw new Error('Blog not found');
+          throw new Error(`Blog not found - requested index ${blogIndex} but only ${data.blogs.length} blogs available`);
         }
       } else {
-        throw new Error('Failed to fetch blogs');
+        console.error('Invalid data structure:', data);
+        throw new Error('Failed to fetch blogs - invalid response structure');
       }
     } catch (err) {
       console.error('Error fetching blog:', err);
-      setError('Failed to load the requested blog.');
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError('Network error: Unable to connect to the server. Please check your internet connection and try again.');
+      } else if (err instanceof Error) {
+        setError(`Failed to load the requested blog: ${err.message}`);
+      } else {
+        setError('An unexpected error occurred while loading the blog.');
+      }
     } finally {
       setLoading(false);
     }
