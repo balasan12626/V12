@@ -15,13 +15,6 @@ export default defineConfig(({ mode }) => {
     // Ensure Vite serves static files from the public directory
     publicDir: 'public',
     
-    server: {
-      // Ensure Vite serves files with the correct MIME types
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    },
-    
     plugins: [
       // Custom plugin to handle sitemap.xml in development
       viteSitemap(),
@@ -132,6 +125,17 @@ export default defineConfig(({ mode }) => {
       host: true,
       port: 3000,
       open: true,
+      proxy: {
+        '/api': {
+          target: env.VITE_API_URL || 'https://v12backend-production.up.railway.app',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          secure: true,
+        },
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     },
     preview: {
       port: 3000,

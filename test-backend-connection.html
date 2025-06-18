@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Connection Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .result { margin: 20px 0; padding: 15px; border-radius: 8px; }
+        .success { background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background-color: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .loading { background-color: #fff3cd; border: 1px solid #ffeaa7; color: #856404; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Backend Connection Test</h1>
+    <p><strong>Backend URL:</strong> <code>https://v12backend-production.up.railway.app</code></p>
+    
+    <div>
+        <button onclick="testHealthCheck()">Test Health Check</button>
+        <button onclick="testBlogsAPI()">Test Blogs API</button>
+        <button onclick="testDatabaseStats()">Test Database Stats</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        const API_BASE_URL = 'https://v12backend-production.up.railway.app';
+        
+        function showResult(type, message, data = null) {
+            const resultDiv = document.getElementById('result');
+            let content = `<div class="${type}"><strong>${message}</strong>`;
+            if (data) {
+                content += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            }
+            content += '</div>';
+            resultDiv.innerHTML = content;
+        }
+
+        async function testHealthCheck() {
+            showResult('loading', 'Testing health check endpoint...');
+            try {
+                const response = await fetch(`${API_BASE_URL}/health`);
+                const data = await response.json();
+                showResult('success', '✅ Health check successful!', data);
+            } catch (error) {
+                showResult('error', '❌ Health check failed: ' + error.message);
+            }
+        }
+
+        async function testBlogsAPI() {
+            showResult('loading', 'Testing blogs API endpoint...');
+            try {
+                const response = await fetch(`${API_BASE_URL}/blogs`);
+                const data = await response.json();
+                const summary = {
+                    status: data.status,
+                    blogCount: data.count,
+                    firstBlogTitle: data.blogs?.[0]?.title || 'No blogs found'
+                };
+                showResult('success', '✅ Blogs API successful!', summary);
+            } catch (error) {
+                showResult('error', '❌ Blogs API failed: ' + error.message);
+            }
+        }
+
+        async function testDatabaseStats() {
+            showResult('loading', 'Testing database stats endpoint...');
+            try {
+                const response = await fetch(`${API_BASE_URL}/database/stats`);
+                const data = await response.json();
+                showResult('success', '✅ Database stats successful!', data);
+            } catch (error) {
+                showResult('error', '❌ Database stats failed: ' + error.message);
+            }
+        }
+
+        // Auto-test on page load
+        window.onload = function() {
+            testHealthCheck();
+        };
+    </script>
+</body>
+</html> 

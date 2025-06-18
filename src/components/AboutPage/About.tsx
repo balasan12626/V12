@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileSection from './ProfileSection';
 import Education from './Education';
 import Experience from './Experience';
+import ApiTest from '../ApiTest';
 
 const About: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const About: React.FC = () => {
       <ProfileSection />
       <Education />
       <Experience />
+      <ApiTest className="mt-12" />
     </div>
   );
 };
