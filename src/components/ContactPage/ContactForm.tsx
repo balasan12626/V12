@@ -64,7 +64,7 @@ const ContactForm: React.FC = () => {
 
       // EmailJS Configuration
       const serviceID = 'service_4psc2di';
-      const templateID = 'template_contact'; // You need to create this template in EmailJS dashboard
+      const templateID = 'template_rz84qep'; // balaautoemail template
       const publicKey = 'pk5OPzMjk8dZVEk';
 
       // Template parameters
