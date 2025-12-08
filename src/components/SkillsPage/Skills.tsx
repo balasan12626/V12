@@ -1,6 +1,6 @@
 import React from 'react';
 import SkillCategory from './SkillCategory';
-import { BarChart3, Database, Brain, TrendingUp, Users, Award } from 'lucide-react';
+import { BarChart3, Database, Brain, TrendingUp, Users, Award, Code } from 'lucide-react';
 
 interface SkillType {
   name: string;
@@ -96,6 +96,20 @@ const Skills: React.FC = () => {
         { name: 'Dashboard Design', percentage: 90, color: '#00C4FF' },
         { name: 'Data Cleaning', percentage: 95, color: '#00C4FF' },
         { name: 'Report Automation', percentage: 80, color: '#00C4FF' }
+      ]
+    },
+    {
+      id: 'web-development',
+      title: 'Web Development (Additional)',
+      icon: <Code size={24} className="text-[#00C4FF]" />,
+      skills: [
+        { name: 'HTML', percentage: 55, color: '#00C4FF' },
+        { name: 'CSS', percentage: 55, color: '#00C4FF' },
+        { name: 'React', percentage: 50, color: '#00C4FF' },
+        { name: 'Bootstrap', percentage: 50, color: '#00C4FF' },
+        { name: 'Tailwind CSS', percentage: 50, color: '#00C4FF' },
+        { name: 'Node.js', percentage: 50, color: '#00C4FF' },
+        { name: 'FastAPI', percentage: 50, color: '#00C4FF' }
       ]
     }
   ];
