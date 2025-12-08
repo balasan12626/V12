@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Database, Cpu, BarChart2 } from 'lucide-react';
+import { ArrowRight, Code, Database, Cpu, BarChart2, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const skills = [
@@ -45,8 +45,8 @@ const Hero: React.FC = () => {
             className="mb-12 text-center"
           >
             <div className="flex flex-wrap justify-center gap-4 mb-12">
-              <Link 
-                to="/projects" 
+              <Link
+                to="/projects"
                 className="relative group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30"
               >
                 <span className="relative z-10 flex items-center">
@@ -54,8 +54,19 @@ const Hero: React.FC = () => {
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
-              <a 
-                href="#contact" 
+              <a
+                href="/balakarthikeyan-resume-view.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative group px-8 py-4 bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-medium rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30"
+              >
+                <span className="relative z-10 flex items-center">
+                  <FileText className="mr-2" size={18} /> View Resume
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </a>
+              <a
+                href="#contact"
                 className="px-8 py-4 border-2 border-white/20 text-white font-medium rounded-lg hover:bg-white/10 transition-all duration-300 hover:border-white/40"
               >
                 Let's Collaborate

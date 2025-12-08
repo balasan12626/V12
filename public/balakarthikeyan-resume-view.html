@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balakarthikeyan BS - Data Analyst Resume</title>
+    <style>
+        /* A4 Page Settings */
+        @page {
+            size: A4;
+            margin: 15mm 20mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #000000;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 18px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+        }
+
+        .name {
+            font-size: 26pt;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 14pt;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .location {
+            font-size: 11pt;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: 10.5pt;
+            margin-top: 8px;
+        }
+
+        .contact-item {
+            white-space: nowrap;
+        }
+
+        /* Main Content Container */
+        .content {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .left-column {
+            flex: 1;
+        }
+
+        .right-column {
+            flex: 2;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+            text-transform: uppercase;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .skill-category {
+            margin-bottom: 8px;
+        }
+
+        .skill-category strong {
+            color: #333;
+            font-size: 10.5pt;
+        }
+
+        /* Summary Section */
+        .summary-text {
+            text-align: justify;
+            font-size: 11pt;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .project {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+
+        .project-header {
+            margin-bottom: 6px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            color: #000;
+            font-size: 11.5pt;
+            margin-bottom: 3px;
+        }
+
+        .project-tech {
+            color: #666;
+            font-size: 10.5pt;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .project-date {
+            color: #666;
+            font-size: 10.5pt;
+            margin-bottom: 8px;
+        }
+
+        .project-details {
+            padding-left: 18px;
+        }
+
+        .project-details li {
+            margin-bottom: 5px;
+            font-size: 10.5pt;
+            text-align: justify;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .education-degree {
+            font-weight: bold;
+            color: #000;
+            font-size: 11.5pt;
+        }
+
+        .education-date {
+            color: #666;
+            font-size: 10.5pt;
+            white-space: nowrap;
+        }
+
+        .education-details {
+            color: #666;
+            font-size: 10.5pt;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding-left: 18px;
+        }
+
+        .certifications li {
+            margin-bottom: 5px;
+            font-size: 10.5pt;
+        }
+
+        /* Highlight metrics */
+        .metric {
+            font-weight: bold;
+        }
+
+        /* Spacing utilities */
+        .spacing-small {
+            margin-top: 5px;
+        }
+
+        .spacing-medium {
+            margin-top: 10px;
+        }
+
+        .spacing-large {
+            margin-top: 15px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 11pt;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+            }
+
+            .a4-page {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .content {
+                gap: 20px;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Screen preview */
+        @media screen {
+            body {
+                background-color: #f5f5f5;
+                padding: 20px 0;
+            }
+
+            .a4-page {
+                background-color: white;
+                box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                padding: 20mm 25mm;
+            }
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: disc;
+        }
+
+        li {
+            margin-left: 15px;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="a4-page">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="name">BALAKARTHIKEYAN BS</h1>
+            <div class="title">Data Analyst</div>
+            <div class="location">Salem, Tamil Nadu</div>
+            <div class="contact-info">
+                <div class="contact-item">Phone: 8778725356</div>
+                <div class="contact-item">Email: sbb202122005@gmail.com</div>
+                <div class="contact-item">LinkedIn: linkedin.com/in/balakarthikeyan02122005</div>
+                <div class="contact-item">GitHub: github.com/balasan12626</div>
+                <div class="contact-item">Portfolio: balakarthikeyan.me</div>
+            </div>
+        </div>
+
+        <!-- Main Content with Two Columns -->
+        <div class="content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Key Skills Section -->
+                <div class="section">
+                    <h2 class="section-title">KEY SKILLS</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <strong>Programming:</strong><br>
+                            Python (Pandas, NumPy,<br>
+                            Matplotlib, Seaborn)
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>Databases:</strong><br>
+                            SQL, MySQL, SQL Server
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>BI Tools:</strong><br>
+                            Power BI (DAX, Power Query,<br>
+                            KPI Dashboards), Tableau
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>Excel:</strong><br>
+                            Pivot Tables, Forecasting,<br>
+                            Power Pivot, Lookup Functions
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>ETL & Data:</strong><br>
+                            Data Modeling, KPI Development
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>Statistics:</strong><br>
+                            Hypothesis Testing,<br>
+                            A/B Testing, Time-Series Analysis
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>Tools:</strong><br>
+                            GitHub, Jupyter Notebook
+                        </div>
+
+                        <div class="skill-category spacing-small">
+                            <strong>Soft Skills:</strong><br>
+                            Data Storytelling,<br>
+                            Problem Solving, Communication
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <div class="section">
+                    <h2 class="section-title">CERTIFICATIONS</h2>
+                    <ul class="certifications">
+                        <li>NPTEL – Design Thinking (2023)</li>
+                        <li class="spacing-small">NPTEL – Introduction to<br>Internet of Things (2023)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Summary Section -->
+                <div class="section">
+                    <h2 class="section-title">SUMMARY</h2>
+                    <div class="summary-text">
+                        Data Analyst skilled in Python, SQL, Power BI, Tableau, and Excel with strong experience in ETL workflows, KPI reporting, forecasting, and data modeling. Proficient in data cleaning, feature engineering, DAX, Power Query, and automation. Experienced in analyzing healthcare, automobile, and financial datasets. Adept at generating meaningful insights using dashboards and statistical methods including hypothesis testing, A/B testing, time-series analysis, and advanced SQL (joins, CTEs, window functions). Strong communicator with proven success in improving reporting efficiency and accuracy.
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="section">
+                    <h2 class="section-title">PROJECTS</h2>
+
+                    <!-- Project 1 -->
+                    <div class="project">
+                        <div class="project-header">
+                            <div class="project-title">Car Sales Data Analysis</div>
+                            <div class="project-tech">Python, SQL, Power BI</div>
+                            <div class="project-date">Oct 2024 – Dec 2024</div>
+                        </div>
+                        <ul class="project-details">
+                            <li>Improved sales visibility by <span class="metric">32%</span> using KPI dashboards</li>
+                            <li>Automated ETL pipeline, reducing data cleaning time by <span class="metric">40%</span></li>
+                            <li>Conducted segmentation using SQL joins and CTEs to analyze purchase behavior</li>
+                            <li>Increased forecasting accuracy by identifying seasonal demand patterns</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project">
+                        <div class="project-header">
+                            <div class="project-title">Healthcare Patient Analytics</div>
+                            <div class="project-tech">Python, Tableau</div>
+                            <div class="project-date">Jan 2025 – Present</div>
+                        </div>
+                        <ul class="project-details">
+                            <li>Reduced data inconsistencies by <span class="metric">28%</span> using systematic data validation</li>
+                            <li>Improved classification insights by <span class="metric">22%</span> through statistical testing</li>
+                            <li>Automated reporting and reduced dashboard creation time by <span class="metric">50%</span></li>
+                            <li>Performed time-series analysis to study patient flow patterns</li>
+                        </ul>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project">
+                        <div class="project-header">
+                            <div class="project-title">Financial Performance Dashboard</div>
+                            <div class="project-tech">Power BI, Python, MySQL</div>
+                            <div class="project-date"></div>
+                        </div>
+                        <ul class="project-details">
+                            <li>Improved management KPI visibility by <span class="metric">45%</span></li>
+                            <li>Reduced data refresh time by <span class="metric">60%</span> using Power Query automation</li>
+                            <li>Delivered profitability insights using SQL-based segmentation</li>
+                            <li>Enhanced metric accuracy through structured data modeling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education Section -->
+                <div class="section">
+                    <h2 class="section-title">EDUCATION</h2>
+
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div class="education-degree">B.Tech – Artificial Intelligence & Data Science</div>
+                            <div class="education-date">2024-2027</div>
+                        </div>
+                        <div class="education-details">Sona College of Technology, Salem</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div class="education-degree">Diploma – Electronics & Communication Engineering (ECE)</div>
+                            <div class="education-date">2021 – 2024</div>
+                        </div>
+                        <div class="education-details">Thiagarajar Polytechnic College, Salem</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Print Button -->
+        <div class="no-print" style="text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee;">
+            <button onclick="printResume()" style="padding: 10px 25px; background-color: #2c3e50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; margin-bottom: 10px;">
+                🖨️ Print / Save as PDF
+            </button>
+
+        </div>
+    </div>
+
+    <script>
+        function printResume() {
+            // Update any dynamic content before printing
+            const currentYear = new Date().getFullYear();
+            const graduationElements = document.querySelectorAll('.education-date');
+
+            graduationElements.forEach(element => {
+                if (element.textContent.includes('Expected Graduation: 2027')) {
+                    element.textContent = 'Expected Graduation: 2027';
+                }
+            });
+
+            // Trigger print dialog
+            window.print();
+        }
+
+        // Auto-calculate if content fits on one page
+        document.addEventListener('DOMContentLoaded', function() {
+            const page = document.querySelector('.a4-page');
+            const pageHeight = page.scrollHeight;
+            const maxHeight = 297 * 3.78; // Convert mm to pixels
+
+            if (pageHeight > maxHeight) {
+                console.log('Content might exceed one page. Consider adjusting spacing.');
+            }
+        });
+    </script>
+</body>
+</html>
