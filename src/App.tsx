@@ -8,7 +8,6 @@ import About from './components/AboutPage/About';
 import Projects from './components/ProjectsPage/Projects';
 import Skills from './components/SkillsPage/Skills';
 import Contact from './components/ContactPage/Contact';
-import Article from './components/aritcalpage/Article';
 import ErrorBoundary from './components/ErrorBoundary';
 import NotFound from './pages/NotFound';
 import Sitemap from './components/Sitemap/Sitemap';
@@ -32,8 +31,6 @@ const CatchAllRoutes = () => {
         <Route path="projects" element={<Projects />} />
         <Route path="skills" element={<Skills />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="articles" element={<Article />} />
-        <Route path="articles/:id" element={<Article />} />
         <Route path="sitemap.xml" element={<Sitemap />} />
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
